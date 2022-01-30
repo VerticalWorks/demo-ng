@@ -30,7 +30,7 @@ const DATA: PersonElement[] = [
     lastName: 'Bowman',
     phoneNumber: '971-203-4437'
   },
- 
+  
 ];
 export interface PersonElement {
   firstName: string;
