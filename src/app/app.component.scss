@@ -1,0 +1,19 @@
+
+.top{
+    border-color: red;
+    border-width: 1px;
+    border-style:solid;
+}
+.router-outlet{
+    border-color: green;
+    border-width: 1px;
+    border-style:solid;
+    display:flex;
+    justify-content: center;
+    align-items: auto;
+    text-align: center;
+    width: auto;
+    margin-top:50px;
+    margin-left:25px;
+    margin-right:25px;
+  }

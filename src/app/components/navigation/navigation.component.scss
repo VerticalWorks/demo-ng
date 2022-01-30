@@ -1,17 +1,48 @@
-.sidenav-container {
-  height: 100%;
-}
-
-.sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+@import "../../../styles.scss";
+.top-level{
+  mat-toolbar {
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgb(95, 108, 184) 100%);
+    box-shadow: -1px 10px 7px grey;
+    color:white;
+    //width:auto;
+    .container{
+      display:inline-block;
+      padding-top: 14px;
+      .title{
+        text-shadow: 1px 2px 3px #252525;
+      }
+      .ng-version{
+        margin-top: -15px;
+        font-size: xx-small;
+        color:rgb(255, 196, 0);
+      }
+    }
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+    .menu-options{
+      display:flex;
+      justify-content: flex-start;
+      > button{
+        color:white !important;
+      }
+      > .container2{
+      display:inline-block;
+      height:39px;
+      align-items: center;
+      
+      .special-text{
+        margin-top: -15px;
+        text-shadow: 1px 2px 3px #252525;
+      }
+      .special-label{
+        height:10px;
+        margin-top: -25px;
+        font-size: xx-small;
+        color:rgb(255, 196, 0);
+      }
+      }
+    }
+  }
 }
