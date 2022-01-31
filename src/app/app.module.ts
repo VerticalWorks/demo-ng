@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +12,7 @@ import { PersonDetailComponent } from './components/person-detail/person-detail.
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MaterialModule } from 'src/angular-material';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { DataLayerService } from './services/data-layer.service';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,12 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LayoutModule,
     MaterialModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DataLayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

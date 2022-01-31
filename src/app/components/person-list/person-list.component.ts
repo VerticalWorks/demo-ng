@@ -1,7 +1,10 @@
-import { Component } from '@angular/core'
+import { AfterViewInit, Component, OnInit} from '@angular/core'
 import { animate, state, style, transition, trigger} from '@angular/animations'
 import { DataLayerService } from '../../services/data-layer.service'
-import { Person } from '../../models/person'
+import { Person, ApiResult } from '../../models'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SpinnerComponent } from '../spinner/spinner.component';
+import { map } from 'rxjs/operators';
 /**
  * @title Table with expandable rows
  */
@@ -19,23 +22,50 @@ import { Person } from '../../models/person'
   ],
 })
  
-export class PersonListComponent {
-  dataSource = DATA;
-  columnsToDisplay = ['firstName', 'lastName'];
-  expandedElement!: PersonElement | null;
-}
-const DATA: PersonElement[] = [
-  {
-    firstName: 'Michael',
-    lastName: 'Bowman',
-    phoneNumber: '971-203-4437'
-  },
+export class PersonListComponent implements AfterViewInit, OnInit {
+  dataSource: Person[] = []
+  columnsToDisplay = ['firstName', 'lastName']
+  expandedElement!: Person | null
+  constructor(private dataService: DataLayerService, private dialog: MatDialog) {
+  }
+  ngAfterViewInit(): void {
+    this.fetchAddressBook()
+  }
+  ngOnInit(): void {
   
-];
-export interface PersonElement {
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-}
+  }
+  
+  fetchAddressBook(){
+    let dialogRef = this.enableSpinner();
+    
+    this.dataService.getAddressBook()
+    .pipe(
+        map(itemData => {
+            return itemData.results.map(value => {
+                let person: Person = {
+                  firstName: value.name.first,
+                  lastName: value.name.last,
+                  phoneNumber: value.phone
+                }
+                return person
+            })
+        })
+    ).subscribe((person) => {
+       this.dataSource = person 
+       dialogRef.close()
+      })
+  }
 
+  private enableSpinner() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    let dialogRef = this.dialog.open(SpinnerComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    return dialogRef;
+  }
+  }
 

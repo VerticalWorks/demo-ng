@@ -26,7 +26,12 @@ For simplicity sake, it would help to have those specific versions of the OS, No
 - Navigate to `http://localhost:4200/` to test drive the app
 - Changes to source-files trigger live updates
 
-
+## Development Approach
+- Used GIT (for obvious reasons)
+- Used the NG schematic generator for most objects
+- Tried to keep things simple
+- Added a dataservice (injectable) and spinner for showing progress
+- Did not add any test
 ## Proxy Settings
 * NA
 ## Code scaffolding
