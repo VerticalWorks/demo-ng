@@ -32,6 +32,13 @@ For simplicity sake, it would help to have those specific versions of the OS, No
 - Tried to keep things simple
 - Added a dataservice (injectable) and spinner for showing progress
 - Did not add any test
+
+## Summary of Assignment
+- Thsi assignment took my a little longer than it should have.  I'm going to attribute the extra time to being a little under the weather.
+- I would love to add AG-GRID to the mix, because it has some many kewl features, like sorting, filtering, drag-drop, pagination, etc.  It's a great grid for NG.
+- In the real world I would have added injectors and route guards, and also NGXS for intra component communications and state mgmt.
+- Libraries; an awesome way to develop and publish components in isolation.
+- Lazy Loading; just makes sense.
 ## Proxy Settings
 * NA
 ## Code scaffolding
