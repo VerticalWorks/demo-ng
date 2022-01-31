@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit} from '@angular/core'
+import { AfterViewInit, Component } from '@angular/core'
 import { animate, state, style, transition, trigger} from '@angular/animations'
 import { DataLayerService } from '../../services/data-layer.service'
 import { Person, ApiResult } from '../../models'
@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
   ],
 })
  
-export class PersonListComponent implements AfterViewInit, OnInit {
+export class PersonListComponent implements AfterViewInit {
   dataSource: Person[] = []
   columnsToDisplay = ['firstName', 'lastName']
   expandedElement!: Person | null
@@ -30,9 +30,6 @@ export class PersonListComponent implements AfterViewInit, OnInit {
   }
   ngAfterViewInit(): void {
     this.fetchAddressBook()
-  }
-  ngOnInit(): void {
-  
   }
   
   fetchAddressBook(){
